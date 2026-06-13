@@ -1,0 +1,39 @@
+name: Numbers API FinOps
+description: Financial operations guidance for teams consuming the Numbers API.
+url: http://numbersapi.com/
+cost:
+  model: free
+  currency: USD
+  baselineMonthlyCost: 0.00
+  notes: >
+    The Numbers API is entirely free. There are no usage-based charges,
+    subscription fees, or overage costs.
+optimization:
+  - strategy: Response Caching
+    description: >
+      Since the Numbers API returns static facts (the same number always
+      yields the same response), cache responses aggressively. A long or
+      infinite TTL cache eliminates repeat API calls entirely after the
+      first fetch, reducing latency and protecting against any future
+      service changes.
+  - strategy: Server-Side Proxying
+    description: >
+      The API is HTTP-only. Route all API calls through a backend proxy
+      to handle HTTPS for clients and apply caching at the proxy layer
+      to minimize outbound calls.
+  - strategy: Batch Pre-fetching
+    description: >
+      For applications that display facts about a predictable set of
+      numbers (e.g., 1-100), pre-fetch and store all facts at startup
+      rather than fetching on demand, eliminating runtime dependency on
+      the external service.
+risks:
+  - type: Service Availability
+    description: >
+      The Numbers API is a community-maintained service with no published
+      SLA. Implement graceful fallback messaging so applications remain
+      functional if the service is temporarily unavailable.
+  - type: No Versioning / Breaking Changes
+    description: >
+      There is no versioned API contract. Monitor for response format
+      changes and test integrations periodically.

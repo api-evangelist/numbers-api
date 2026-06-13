@@ -1,0 +1,21 @@
+name: Numbers API Rate Limits
+description: Rate limiting policies for the Numbers API service.
+url: http://numbersapi.com/
+rateLimits:
+  - plan: Free
+    requests: unlimited
+    period: none
+    authentication: none
+    notes: >
+      The Numbers API publishes no formal hard rate limits. It is a free
+      community service and requests are accepted on a best-effort basis.
+      Consumers should implement client-side caching for frequently requested
+      numbers to avoid tight request loops and be considerate of shared
+      infrastructure.
+guidance:
+  - Implement caching for frequently requested number/date combinations.
+  - Avoid high-frequency polling loops against the same endpoints.
+  - Use the consistent/static nature of responses (same number always returns
+    the same fact) to cache responses indefinitely or for long TTLs.
+  - For server-rendered applications, proxy requests server-side and cache
+    at the application layer rather than making per-user API calls.

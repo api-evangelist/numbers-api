@@ -1,0 +1,24 @@
+name: Numbers API Plans and Pricing
+description: Pricing plans available for the Numbers API service.
+url: http://numbersapi.com/
+plans:
+  - name: Free
+    description: The Numbers API is completely free to use with no tiers, no authentication required, and no formal rate limits. It operates as a community resource on a best-effort basis.
+    price: 0.00
+    currency: USD
+    unit: month
+    rateLimit: unlimited
+    authentication: none
+    features:
+      - No API key required
+      - No signup required
+      - Access to trivia, math, year, and date fact endpoints
+      - Plain text and JSON response formats
+      - Random fact endpoint
+      - Fallback witty responses when specific fact is unavailable
+      - Consistent/static responses suitable for caching
+notes: >
+  The Numbers API has no documented paid tier. It is a free, open community service
+  created by David Hu and Mack Duan. Caching is recommended to reduce load.
+  The service operates over HTTP only (not HTTPS); HTTPS consumers should proxy
+  requests through a backend server.
