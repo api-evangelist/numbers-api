@@ -1,0 +1,72 @@
+vocabulary:
+  - term: trivia
+    definition: >
+      A category of number fact returning general interesting knowledge or
+      pop-culture references associated with a number.
+    example: '42 is the result given by Google and Bing for the query "the answer to life the universe and everything".'
+
+  - term: math
+    definition: >
+      A category of number fact returning mathematical properties, sequences,
+      or significance of a number.
+    example: '42 is the 5th Catalan number.'
+
+  - term: year
+    definition: >
+      A category of number fact returning a notable historical event that
+      occurred in the specified year.
+    example: '2013 is the year that China will attempt its first unmanned Moon landing.'
+
+  - term: date
+    definition: >
+      A category of number fact returning a historical event associated with
+      a specific calendar date (month and day).
+    example: 'February 29 is the day in 1504 that Christopher Columbus uses his knowledge of a lunar eclipse to convince Native Americans to provide him with supplies.'
+
+  - term: random
+    definition: >
+      A special keyword used in place of a number to request a randomly
+      selected fact from the available dataset.
+
+  - term: fragment
+    definition: >
+      A query parameter that returns the fact as a sentence fragment starting
+      with a lowercase word and omitting ending punctuation, suitable for
+      embedding in a larger sentence.
+    example: 'the number of times Julius Caesar was stabbed'
+
+  - term: notfound
+    definition: >
+      A query parameter controlling behavior when no fact exists for the
+      requested number. Values: default, floor, ceil.
+
+  - term: floor
+    definition: >
+      A notfound strategy that rounds down to the largest number with an
+      associated fact and returns that fact instead.
+
+  - term: ceil
+    definition: >
+      A notfound strategy that rounds up to the smallest number with an
+      associated fact and returns that fact instead.
+
+  - term: batch
+    definition: >
+      A request specifying multiple numbers or ranges (e.g., 1..3,10) to
+      retrieve facts for up to 100 numbers in a single response, returned
+      as a JSON map from numbers to facts.
+
+  - term: range
+    definition: >
+      A numeric range specified as min..max (inclusive) used in batch requests
+      to retrieve facts for all integers within the range.
+
+  - term: json
+    definition: >
+      A query parameter or Accept header value that requests the response in
+      JSON format with full metadata, rather than plain text.
+
+  - term: callback
+    definition: >
+      (Deprecated) A JSONP query parameter specifying the JavaScript function
+      name to wrap the response in for cross-origin browser requests.

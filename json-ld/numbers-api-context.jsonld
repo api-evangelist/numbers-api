@@ -1,0 +1,38 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "numbersapi": "http://numbersapi.com/vocab#",
+
+    "NumberFact": "numbersapi:NumberFact",
+    "text": {
+      "@id": "schema:text",
+      "@type": "schema:Text"
+    },
+    "found": {
+      "@id": "numbersapi:found",
+      "@type": "schema:Boolean"
+    },
+    "number": {
+      "@id": "schema:Number",
+      "@type": "schema:Number"
+    },
+    "type": {
+      "@id": "numbersapi:factType",
+      "@type": "schema:Text"
+    },
+    "date": {
+      "@id": "schema:date",
+      "@type": "schema:Text"
+    },
+    "year": {
+      "@id": "schema:year",
+      "@type": "schema:Text"
+    },
+
+    "trivia": "numbersapi:TriviaFact",
+    "math": "numbersapi:MathFact",
+    "yearFact": "numbersapi:YearFact",
+    "dateFact": "numbersapi:DateFact"
+  }
+}

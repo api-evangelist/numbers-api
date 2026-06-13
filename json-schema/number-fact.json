@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/numbers-api/main/json-schema/number-fact.json",
+  "title": "NumberFact",
+  "description": "A fact about a number returned by the Numbers API, including the fact text and associated metadata.",
+  "type": "object",
+  "required": ["text", "found", "number", "type"],
+  "properties": {
+    "text": {
+      "type": "string",
+      "description": "The fact text itself.",
+      "examples": [
+        "42 is the result given by Google and Bing for the query \"the answer to life the universe and everything\".",
+        "42 is the 5th Catalan number.",
+        "2013 is the year that China will attempt its first unmanned Moon landing.",
+        "February 29 is the day in 1504 that Christopher Columbus uses his knowledge of a lunar eclipse to convince Native Americans to provide him with supplies."
+      ]
+    },
+    "found": {
+      "type": "boolean",
+      "description": "Whether a fact was found for the requested number."
+    },
+    "number": {
+      "type": "number",
+      "description": "The floating-point number that the fact pertains to. For a date fact, this is the 1-indexed day of a leap year."
+    },
+    "type": {
+      "type": "string",
+      "description": "The category of the returned fact.",
+      "enum": ["trivia", "math", "year", "date"]
+    },
+    "date": {
+      "type": "string",
+      "description": "A day of year associated with some year facts (e.g., 'June 6')."
+    },
+    "year": {
+      "type": "string",
+      "description": "A year associated with some date facts."
+    }
+  },
+  "additionalProperties": false
+}
