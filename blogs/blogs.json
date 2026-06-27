@@ -2,13 +2,14 @@
   "repo": "numbers-api",
   "feeds": [
     {
-      "source": "https://www.linkedin.com/in/davidhu2000/",
-      "feed_url": "https://www.linkedin.com/in/davidhu2000/",
-      "title": "",
+      "source": "http://numbersapi.com",
+      "feed_url": "",
       "saved": 0,
-      "method": "none"
+      "method": "agent-scrape",
+      "error": "not a blog (parked/repurposed domain)"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T12:57:33Z",
+  "agent_pulled": "2026-06-27"
 }
