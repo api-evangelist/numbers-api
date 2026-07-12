@@ -43,6 +43,8 @@ apis:
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/numbers-api/refs/heads/main/openapi/numbers-api-openapi.yml
 common:
+  - type: DomainSecurity
+    url: security/numbers-api-domain-security.yml
   - type: Website
     url: http://numbersapi.com
   - type: Documentation
