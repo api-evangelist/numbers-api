@@ -1,0 +1,146 @@
+openapi: 3.0.3
+info:
+  title: Numbers Date API
+  description: 'Free REST API providing interesting mathematical facts, trivia, dates, and year facts about numbers for educational and fun applications. Returns short, readable facts about any number or date across four categories: trivia, mathematical properties, notable years, and day-of-year historical events. No authentication or API key required.
+
+    '
+  version: 1.0.0
+  contact:
+    url: http://numbersapi.com
+  license:
+    name: MIT
+servers:
+- url: http://numbersapi.com
+  description: Numbers API production server
+tags:
+- name: Date
+paths:
+  /{month}/{day}/date:
+    get:
+      operationId: getDateFact
+      summary: Get a date fact for a specific month and day
+      description: 'Returns an interesting historical fact about the specified date (month/day). The number in the JSON response is the 1-indexed day of the leap year (e.g., 61 would be March 1st).
+
+        '
+      parameters:
+      - name: month
+        in: path
+        required: true
+        description: Month number (1-12)
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 12
+        example: 2
+      - name: day
+        in: path
+        required: true
+        description: Day of month
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 31
+        example: 29
+      - $ref: '#/components/parameters/json'
+      - $ref: '#/components/parameters/fragment'
+      - $ref: '#/components/parameters/notfound'
+      - $ref: '#/components/parameters/default'
+      - $ref: '#/components/parameters/callback'
+      responses:
+        '200':
+          description: A date fact about the specified date (plain text or JSON)
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: February 29 is the day in 1504 that Christopher Columbus uses his knowledge of a lunar eclipse to convince Native Americans to provide him with supplies.
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DateFact'
+      tags:
+      - Date
+components:
+  parameters:
+    callback:
+      name: callback
+      in: query
+      required: false
+      description: '(Deprecated) JSONP callback function name. The response will be wrapped in a call to this function.
+
+        '
+      schema:
+        type: string
+      deprecated: true
+    notfound:
+      name: notfound
+      in: query
+      required: false
+      description: 'What to do if the number is not found. Options: `default` (return a pre-written missing message), `floor` (round down to the largest number with a fact), `ceil` (round up to the smallest number with a fact).
+
+        '
+      schema:
+        type: string
+        enum:
+        - default
+        - floor
+        - ceil
+        default: default
+    fragment:
+      name: fragment
+      in: query
+      required: false
+      description: 'Return the fact as a sentence fragment that can be easily included as part of a larger sentence. The first word is lowercase and ending punctuation is omitted.
+
+        '
+      schema:
+        type: boolean
+    json:
+      name: json
+      in: query
+      required: false
+      description: 'Return the fact and associated metadata as a JSON object instead of plain text. Can also be triggered by setting the Accept or Content-Type header to application/json.
+
+        '
+      schema:
+        type: boolean
+    default:
+      name: default
+      in: query
+      required: false
+      description: 'A custom message to return if no fact is found for the requested number. Used in conjunction with `notfound=default`.
+
+        '
+      schema:
+        type: string
+  schemas:
+    DateFact:
+      type: object
+      description: A fact about a calendar date with associated metadata
+      required:
+      - text
+      - found
+      - number
+      - type
+      properties:
+        text:
+          type: string
+          description: The fact text itself
+          example: February 29 is the day in 1504 that Christopher Columbus uses his knowledge of a lunar eclipse to convince Native Americans to provide him with supplies.
+        found:
+          type: boolean
+          description: Whether a fact was found for the requested date
+          example: true
+        number:
+          type: number
+          description: 'The 1-indexed day of a leap year (e.g., 61 would be March 1st)
+
+            '
+          example: 60
+        type:
+          type: string
+          description: The category of the returned fact
+          example: date
+        year:
+          type: string
+          description: A year associated with some date facts
+          example: '1504'

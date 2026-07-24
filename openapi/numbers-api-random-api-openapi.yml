@@ -1,0 +1,277 @@
+openapi: 3.0.3
+info:
+  title: Numbers Date Random API
+  description: 'Free REST API providing interesting mathematical facts, trivia, dates, and year facts about numbers for educational and fun applications. Returns short, readable facts about any number or date across four categories: trivia, mathematical properties, notable years, and day-of-year historical events. No authentication or API key required.
+
+    '
+  version: 1.0.0
+  contact:
+    url: http://numbersapi.com
+  license:
+    name: MIT
+servers:
+- url: http://numbersapi.com
+  description: Numbers API production server
+tags:
+- name: Random
+paths:
+  /random/trivia:
+    get:
+      operationId: getRandomTriviaFact
+      summary: Get a random trivia fact
+      description: Returns an interesting trivia fact about a randomly selected number.
+      parameters:
+      - $ref: '#/components/parameters/json'
+      - $ref: '#/components/parameters/fragment'
+      - $ref: '#/components/parameters/notfound'
+      - $ref: '#/components/parameters/default'
+      - $ref: '#/components/parameters/min'
+      - $ref: '#/components/parameters/max'
+      - $ref: '#/components/parameters/callback'
+      responses:
+        '200':
+          description: A trivia fact about a random number (plain text or JSON)
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NumberFact'
+      tags:
+      - Random
+  /random/math:
+    get:
+      operationId: getRandomMathFact
+      summary: Get a random mathematical fact
+      description: Returns an interesting mathematical fact about a randomly selected number.
+      parameters:
+      - $ref: '#/components/parameters/json'
+      - $ref: '#/components/parameters/fragment'
+      - $ref: '#/components/parameters/notfound'
+      - $ref: '#/components/parameters/default'
+      - $ref: '#/components/parameters/min'
+      - $ref: '#/components/parameters/max'
+      - $ref: '#/components/parameters/callback'
+      responses:
+        '200':
+          description: A math fact about a random number (plain text or JSON)
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NumberFact'
+      tags:
+      - Random
+  /random/year:
+    get:
+      operationId: getRandomYearFact
+      summary: Get a random year fact
+      description: Returns an interesting fact about a randomly selected year.
+      parameters:
+      - $ref: '#/components/parameters/json'
+      - $ref: '#/components/parameters/fragment'
+      - $ref: '#/components/parameters/notfound'
+      - $ref: '#/components/parameters/default'
+      - $ref: '#/components/parameters/min'
+      - $ref: '#/components/parameters/max'
+      - $ref: '#/components/parameters/callback'
+      responses:
+        '200':
+          description: A year fact about a random year (plain text or JSON)
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                $ref: '#/components/schemas/YearFact'
+      tags:
+      - Random
+  /random/date:
+    get:
+      operationId: getRandomDateFact
+      summary: Get a random date fact
+      description: Returns an interesting historical fact about a randomly selected date.
+      parameters:
+      - $ref: '#/components/parameters/json'
+      - $ref: '#/components/parameters/fragment'
+      - $ref: '#/components/parameters/notfound'
+      - $ref: '#/components/parameters/default'
+      - $ref: '#/components/parameters/callback'
+      responses:
+        '200':
+          description: A date fact about a random date (plain text or JSON)
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DateFact'
+      tags:
+      - Random
+components:
+  parameters:
+    callback:
+      name: callback
+      in: query
+      required: false
+      description: '(Deprecated) JSONP callback function name. The response will be wrapped in a call to this function.
+
+        '
+      schema:
+        type: string
+      deprecated: true
+    min:
+      name: min
+      in: query
+      required: false
+      description: 'Minimum value for random number generation. Used with `random` number to constrain the range.
+
+        '
+      schema:
+        type: integer
+    max:
+      name: max
+      in: query
+      required: false
+      description: 'Maximum value for random number generation. Used with `random` number to constrain the range.
+
+        '
+      schema:
+        type: integer
+    fragment:
+      name: fragment
+      in: query
+      required: false
+      description: 'Return the fact as a sentence fragment that can be easily included as part of a larger sentence. The first word is lowercase and ending punctuation is omitted.
+
+        '
+      schema:
+        type: boolean
+    json:
+      name: json
+      in: query
+      required: false
+      description: 'Return the fact and associated metadata as a JSON object instead of plain text. Can also be triggered by setting the Accept or Content-Type header to application/json.
+
+        '
+      schema:
+        type: boolean
+    notfound:
+      name: notfound
+      in: query
+      required: false
+      description: 'What to do if the number is not found. Options: `default` (return a pre-written missing message), `floor` (round down to the largest number with a fact), `ceil` (round up to the smallest number with a fact).
+
+        '
+      schema:
+        type: string
+        enum:
+        - default
+        - floor
+        - ceil
+        default: default
+    default:
+      name: default
+      in: query
+      required: false
+      description: 'A custom message to return if no fact is found for the requested number. Used in conjunction with `notfound=default`.
+
+        '
+      schema:
+        type: string
+  schemas:
+    NumberFact:
+      type: object
+      description: A fact about a number with associated metadata
+      required:
+      - text
+      - found
+      - number
+      - type
+      properties:
+        text:
+          type: string
+          description: The fact text itself
+          example: 42 is the result given by Google and Bing for the query "the answer to life the universe and everything".
+        found:
+          type: boolean
+          description: Whether a fact was found for the requested number
+          example: true
+        number:
+          type: number
+          description: The number that the fact pertains to
+          example: 42
+        type:
+          type: string
+          description: The category of the returned fact
+          enum:
+          - trivia
+          - math
+          - year
+          - date
+          example: trivia
+    YearFact:
+      type: object
+      description: A fact about a year with associated metadata
+      required:
+      - text
+      - found
+      - number
+      - type
+      properties:
+        text:
+          type: string
+          description: The fact text itself
+          example: 2012 is the year that the century's second and last solar transit of Venus occurs on June 6.
+        found:
+          type: boolean
+          description: Whether a fact was found for the requested year
+          example: true
+        number:
+          type: number
+          description: The year that the fact pertains to
+          example: 2012
+        type:
+          type: string
+          description: The category of the returned fact
+          example: year
+        date:
+          type: string
+          description: A day of year associated with some year facts
+          example: June 6
+    DateFact:
+      type: object
+      description: A fact about a calendar date with associated metadata
+      required:
+      - text
+      - found
+      - number
+      - type
+      properties:
+        text:
+          type: string
+          description: The fact text itself
+          example: February 29 is the day in 1504 that Christopher Columbus uses his knowledge of a lunar eclipse to convince Native Americans to provide him with supplies.
+        found:
+          type: boolean
+          description: Whether a fact was found for the requested date
+          example: true
+        number:
+          type: number
+          description: 'The 1-indexed day of a leap year (e.g., 61 would be March 1st)
+
+            '
+          example: 60
+        type:
+          type: string
+          description: The category of the returned fact
+          example: date
+        year:
+          type: string
+          description: A year associated with some date facts
+          example: '1504'
