@@ -6,7 +6,19 @@ description: >
   readable facts about any number or date across four categories: trivia,
   mathematical properties, notable years, and day-of-year historical events.
   No authentication or API key required.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: open
+  trial: false
+  try_now: true
+  public: true
+  label: Free · Open access
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/numbers-api.png
 url: https://raw.githubusercontent.com/api-evangelist/numbers-api/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -21,27 +33,78 @@ tags:
   - Free
   - No Auth
 apis:
-  - aid: numbers-api:numbers-api
-    name: Numbers API
-    description: >
-      Retrieve interesting facts about numbers, mathematical properties,
-      historical year events, and date-specific facts. Supports plain text
-      and JSON response formats with no authentication required.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: http://numbersapi.com
-    humanURL: http://numbersapi.com
-    tags:
-      - Numbers
-      - Trivia
-      - Math
-      - Year
-      - Date
-      - Facts
-    properties:
-      - type: Documentation
-        url: http://numbersapi.com/#42
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/numbers-api/refs/heads/main/openapi/numbers-api-openapi.yml
+- aid: numbers-api:numbers-api-date-api
+  name: Numbers API Date API
+  description: The Date API from Numbers API — 1 operation(s) for date.
+  humanURL: http://numbersapi.com
+  baseURL: http://numbersapi.com
+  tags:
+  - Date
+  properties:
+  - type: OpenAPI
+    url: openapi/numbers-api-date-api-openapi.yml
+  - type: Documentation
+    url: http://numbersapi.com/#42
+- aid: numbers-api:numbers-api-math-api
+  name: Numbers API Math API
+  description: The Math API from Numbers API — 1 operation(s) for math.
+  humanURL: http://numbersapi.com
+  baseURL: http://numbersapi.com
+  tags:
+  - Math
+  properties:
+  - type: OpenAPI
+    url: openapi/numbers-api-math-api-openapi.yml
+  - type: Documentation
+    url: http://numbersapi.com/#42
+- aid: numbers-api:numbers-api-numbers-api-api
+  name: Numbers API Numbers API API
+  description: The Numbers API API from Numbers API — 1 operation(s) for numbers api.
+  humanURL: http://numbersapi.com
+  baseURL: http://numbersapi.com
+  tags:
+  - Numbers API
+  properties:
+  - type: OpenAPI
+    url: openapi/numbers-api-numbers-api-api-openapi.yml
+  - type: Documentation
+    url: http://numbersapi.com/#42
+- aid: numbers-api:numbers-api-random-api
+  name: Numbers API Random API
+  description: The Random API from Numbers API — 4 operation(s) for random.
+  humanURL: http://numbersapi.com
+  baseURL: http://numbersapi.com
+  tags:
+  - Random
+  properties:
+  - type: OpenAPI
+    url: openapi/numbers-api-random-api-openapi.yml
+  - type: Documentation
+    url: http://numbersapi.com/#42
+- aid: numbers-api:numbers-api-trivia-api
+  name: Numbers API Trivia API
+  description: The Trivia API from Numbers API — 1 operation(s) for trivia.
+  humanURL: http://numbersapi.com
+  baseURL: http://numbersapi.com
+  tags:
+  - Trivia
+  properties:
+  - type: OpenAPI
+    url: openapi/numbers-api-trivia-api-openapi.yml
+  - type: Documentation
+    url: http://numbersapi.com/#42
+- aid: numbers-api:numbers-api-year-api
+  name: Numbers API Year API
+  description: The Year API from Numbers API — 1 operation(s) for year.
+  humanURL: http://numbersapi.com
+  baseURL: http://numbersapi.com
+  tags:
+  - Year
+  properties:
+  - type: OpenAPI
+    url: openapi/numbers-api-year-api-openapi.yml
+  - type: Documentation
+    url: http://numbersapi.com/#42
 common:
   - type: AgenticAccess
     url: agentic-access/numbers-api-agentic-access.yml
