@@ -1,0 +1,24 @@
+{
+  "provider": "numbers-api",
+  "sources": [
+    "numbers-api-date-api-openapi.yml",
+    "numbers-api-math-api-openapi.yml",
+    "numbers-api-numbers-api-api-openapi.yml",
+    "numbers-api-random-api-openapi.yml",
+    "numbers-api-trivia-api-openapi.yml",
+    "numbers-api-year-api-openapi.yml"
+  ],
+  "outputs": [
+    "numbers-api-date-api-openapi.yml",
+    "numbers-api-math-api-openapi.yml",
+    "numbers-api-numbers-api-api-openapi.yml",
+    "numbers-api-random-api-openapi.yml",
+    "numbers-api-trivia-api-openapi.yml",
+    "numbers-api-year-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
