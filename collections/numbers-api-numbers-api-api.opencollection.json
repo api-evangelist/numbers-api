@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Numbers Date Numbers API API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Numbers API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a trivia fact about a number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://numbersapi.com/:number",
+            "params": [
+              {
+                "name": "number",
+                "value": "42",
+                "type": "path",
+                "description": "An integer, the keyword `random`, a day of year in the form `month/day` (for date type), or a range like `1..10` or comma-separated values like `1,2,3` for batch requests.\n"
+              },
+              {
+                "name": "json",
+                "value": "",
+                "type": "query",
+                "description": "Return the fact and associated metadata as a JSON object instead of plain text. Can also be triggered by setting the Accept or Content-Type header to application/json.\n"
+              },
+              {
+                "name": "fragment",
+                "value": "",
+                "type": "query",
+                "description": "Return the fact as a sentence fragment that can be easily included as part of a larger sentence. The first word is lowercase and ending punctuation is omitted.\n"
+              },
+              {
+                "name": "notfound",
+                "value": "",
+                "type": "query",
+                "description": "What to do if the number is not found. Options: `default` (return a pre-written missing message), `floor` (round down to the largest number with a fact), `ceil` (round up to the smallest number with a fact).\n"
+              },
+              {
+                "name": "default",
+                "value": "",
+                "type": "query",
+                "description": "A custom message to return if no fact is found for the requested number. Used in conjunction with `notfound=default`.\n"
+              },
+              {
+                "name": "min",
+                "value": "",
+                "type": "query",
+                "description": "Minimum value for random number generation. Used with `random` number to constrain the range.\n"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum value for random number generation. Used with `random` number to constrain the range.\n"
+              },
+              {
+                "name": "callback",
+                "value": "",
+                "type": "query",
+                "description": "(Deprecated) JSONP callback function name. The response will be wrapped in a call to this function.\n"
+              }
+            ]
+          },
+          "docs": "Returns an interesting trivia fact about the specified number. Defaults to the trivia type if no type is specified.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
