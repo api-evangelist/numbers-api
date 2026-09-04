@@ -1,11 +1,11 @@
 aid: numbers-api
 name: Numbers API
-description: >
-  Free REST API providing interesting mathematical facts, trivia, dates, and
-  year facts about numbers for educational and fun applications. Returns short,
-  readable facts about any number or date across four categories: trivia,
-  mathematical properties, notable years, and day-of-year historical events.
-  No authentication or API key required.
+description: 'Free REST API providing interesting mathematical facts, trivia, dates, and year facts about numbers
+  for educational and fun applications. Returns short, readable facts about any number or date across four categories:
+  trivia, mathematical properties, notable years, and day-of-year historical events. No authentication or API key
+  required.
+
+  '
 deliveryModel:
   model: saas
   open_source: false
@@ -37,13 +37,13 @@ modified: '2026-06-13'
 specificationVersion: '0.23'
 type: Index
 tags:
-  - Numbers
-  - Trivia
-  - Math
-  - Facts
-  - Education
-  - Free
-  - No Auth
+- Numbers
+- Trivia
+- Math
+- Facts
+- Education
+- Free
+- No Auth
 apis:
 - aid: numbers-api:numbers-api-date-api
   name: Numbers API Date API
@@ -118,32 +118,36 @@ apis:
   - type: Documentation
     url: http://numbersapi.com/#42
 common:
-  - type: AgenticAccess
-    url: agentic-access/numbers-api-agentic-access.yml
-  - type: DomainSecurity
-    url: security/numbers-api-domain-security.yml
-  - type: Website
-    url: http://numbersapi.com
-  - type: Documentation
-    url: http://numbersapi.com/#42
-  - type: GitHubOrg
-    url: https://github.com/divad12
-  - type: LinkedIn
-    url: https://www.linkedin.com/in/davidhu2000/
-  - type: Blog
-    url: http://numbersapi.com
-  - type: Pricing
-    url: http://numbersapi.com
-  - type: StatusPage
-    url: http://numbersapi.com
-  - type: X
-    url: https://x.com/numbersapi
-  - type: Plans
-    url: plans/numbers-api-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/numbers-api-rate-limits.yml
-  - type: FinOps
-    url: finops/numbers-api-finops.yml
+- type: AgenticAccess
+  url: agentic-access/numbers-api-agentic-access.yml
+- type: DomainSecurity
+  url: security/numbers-api-domain-security.yml
+- type: Website
+  url: http://numbersapi.com
+- type: Documentation
+  url: http://numbersapi.com/#42
+- type: GitHubOrg
+  url: https://github.com/divad12
+- type: LinkedIn
+  url: https://www.linkedin.com/in/davidhu2000/
+- type: Blog
+  url: http://numbersapi.com
+- type: Pricing
+  url: http://numbersapi.com
+- type: StatusPage
+  url: http://numbersapi.com
+- type: X
+  url: https://x.com/numbersapi
+- type: Plans
+  url: plans/numbers-api-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/numbers-api-rate-limits.yml
+- type: FinOps
+  url: finops/numbers-api-finops.yml
+- type: Documentation
+  url: http://numbersapi.com/#api
+- type: Blog
+  url: http://david-hu.com/2012/03/05/announcing-numbers-api.html
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
