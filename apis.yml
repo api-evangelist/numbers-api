@@ -1,9 +1,6 @@
 aid: numbers-api
 name: Numbers API
-description: 'Free REST API providing interesting mathematical facts, trivia, dates, and year facts about numbers
-  for educational and fun applications. Returns short, readable facts about any number or date across four categories:
-  trivia, mathematical properties, notable years, and day-of-year historical events. No authentication or API key
-  required.
+description: 'Free REST API providing interesting mathematical facts, trivia, dates, and year facts about numbers for educational and fun applications. Returns short, readable facts about any number or date across four categories: trivia, mathematical properties, notable years, and day-of-year historical events. No authentication or API key required.
 
   '
 deliveryModel:
@@ -117,6 +114,42 @@ apis:
     url: openapi/numbers-api-year-api-openapi.yml
   - type: Documentation
     url: http://numbersapi.com/#42
+- aid: numbers-api:numbers-batch-api
+  name: Numbers API Batch API
+  description: Multiple facts returned in a single request as a JSON map.
+  humanURL: http://numbersapi.com/
+  baseURL: http://numbersapi.com/
+  tags:
+  - Batch
+  properties:
+  - type: OpenAPI
+    url: openapi/numbers-batch-api-openapi.yml
+  - type: Documentation
+    url: http://numbersapi.com/#api
+  - type: APIReference
+    url: http://numbersapi.com/#api
+  - type: GettingStarted
+    url: http://numbersapi.com/#api
+  - type: JSONSchema
+    url: json-schema/numbers-fact-schema.json
+  - type: JSONSchema
+    url: json-schema/numbers-batch-facts-schema.json
+  - type: JSONStructure
+    url: json-structure/numbers-fact-structure.json
+  - type: JSONStructure
+    url: json-structure/numbers-batch-facts-structure.json
+  - type: Examples
+    url: examples/numbers-fact-example.json
+  - type: Examples
+    url: examples/numbers-trivia-fact-example.json
+  - type: Examples
+    url: examples/numbers-math-fact-example.json
+  - type: Examples
+    url: examples/numbers-date-fact-example.json
+  - type: Examples
+    url: examples/numbers-year-fact-example.json
+  - type: Examples
+    url: examples/numbers-batch-facts-example.json
 common:
 - type: AgenticAccess
   url: agentic-access/numbers-api-agentic-access.yml
