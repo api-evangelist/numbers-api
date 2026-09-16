@@ -117,16 +117,16 @@ apis:
     url: openapi/numbers-api-year-api-openapi.yml
   - type: Documentation
     url: http://numbersapi.com/#42
-- aid: numbers-api:numbers-batch-api
+- aid: numbers-api:numbers-api-batch-api
   name: Numbers API Batch API
   description: Multiple facts returned in a single request as a JSON map.
-  humanURL: http://numbersapi.com/
-  baseURL: http://numbersapi.com/
+  humanURL: http://numbersapi.com
+  baseURL: http://numbersapi.com
   tags:
   - Batch
   properties:
   - type: OpenAPI
-    url: openapi/numbers-batch-api-openapi.yml
+    url: openapi/numbers-api-batch-api-openapi.yml
   - type: Documentation
     url: http://numbersapi.com/#api
   - type: APIReference
