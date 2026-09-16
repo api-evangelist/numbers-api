@@ -1,6 +1,9 @@
 aid: numbers-api
 name: Numbers API
-description: 'Free REST API providing interesting mathematical facts, trivia, dates, and year facts about numbers for educational and fun applications. Returns short, readable facts about any number or date across four categories: trivia, mathematical properties, notable years, and day-of-year historical events. No authentication or API key required.
+description: 'Free REST API providing interesting mathematical facts, trivia, dates, and year facts about
+  numbers for educational and fun applications. Returns short, readable facts about any number or date
+  across four categories: trivia, mathematical properties, notable years, and day-of-year historical events.
+  No authentication or API key required.
 
   '
 deliveryModel:
@@ -30,7 +33,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/numbers-api.png
 url: https://raw.githubusercontent.com/api-evangelist/numbers-api/refs/heads/main/apis.yml
 created: '2026-06-13'
-modified: '2026-06-13'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 type: Index
 tags:
@@ -67,7 +70,7 @@ apis:
   - type: Documentation
     url: http://numbersapi.com/#42
 - aid: numbers-api:numbers-api-numbers-api-api
-  name: Numbers API Numbers API API
+  name: Numbers API Numbers API
   description: The Numbers API API from Numbers API — 1 operation(s) for numbers api.
   humanURL: http://numbersapi.com
   baseURL: http://numbersapi.com
