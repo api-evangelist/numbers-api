@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Numbers Date Year API
-  description: 'Free REST API providing interesting mathematical facts, trivia, dates, and year facts about numbers for educational and fun applications. Returns short, readable facts about any number or date across four categories: trivia, mathematical properties, notable years, and day-of-year historical events. No authentication or API key required.
-
-    '
+  title: Numbers Year API
+  description: 'Free REST API providing interesting mathematical facts, trivia, dates, and year facts about numbers for educational and fun applications. Returns short, readable facts about any number or date across four categories: trivia, mathematical properties, notable years, and day-of-year historical events. No authentication or API key required.'
   version: 1.0.0
   contact:
     url: http://numbersapi.com
@@ -19,9 +17,7 @@ paths:
     get:
       operationId: getYearFact
       summary: Get a year fact about a number
-      description: 'Returns an interesting fact about a notable event that occurred in the specified year.
-
-        '
+      description: Returns an interesting fact about a notable event that occurred in the specified year.
       parameters:
       - $ref: '#/components/parameters/number'
       - $ref: '#/components/parameters/json'
@@ -46,6 +42,57 @@ paths:
       - Year
 components:
   parameters:
+    number:
+      name: number
+      in: path
+      required: true
+      description: 'An integer, the keyword `random`, a day of year in the form `month/day` (for date type), or a range like `1..10` or comma-separated values like `1,2,3` for batch requests.
+
+        '
+      schema:
+        type: string
+      example: '42'
+    notfound:
+      name: notfound
+      in: query
+      required: false
+      description: 'What to do if the number is not found. Options: `default` (return a pre-written missing message), `floor` (round down to the largest number with a fact), `ceil` (round up to the smallest number with a fact).
+
+        '
+      schema:
+        type: string
+        enum:
+        - default
+        - floor
+        - ceil
+        default: default
+    max:
+      name: max
+      in: query
+      required: false
+      description: 'Maximum value for random number generation. Used with `random` number to constrain the range.
+
+        '
+      schema:
+        type: integer
+    fragment:
+      name: fragment
+      in: query
+      required: false
+      description: 'Return the fact as a sentence fragment that can be easily included as part of a larger sentence. The first word is lowercase and ending punctuation is omitted.
+
+        '
+      schema:
+        type: boolean
+    json:
+      name: json
+      in: query
+      required: false
+      description: 'Return the fact and associated metadata as a JSON object instead of plain text. Can also be triggered by setting the Accept or Content-Type header to application/json.
+
+        '
+      schema:
+        type: boolean
     callback:
       name: callback
       in: query
@@ -65,57 +112,6 @@ components:
         '
       schema:
         type: integer
-    max:
-      name: max
-      in: query
-      required: false
-      description: 'Maximum value for random number generation. Used with `random` number to constrain the range.
-
-        '
-      schema:
-        type: integer
-    notfound:
-      name: notfound
-      in: query
-      required: false
-      description: 'What to do if the number is not found. Options: `default` (return a pre-written missing message), `floor` (round down to the largest number with a fact), `ceil` (round up to the smallest number with a fact).
-
-        '
-      schema:
-        type: string
-        enum:
-        - default
-        - floor
-        - ceil
-        default: default
-    fragment:
-      name: fragment
-      in: query
-      required: false
-      description: 'Return the fact as a sentence fragment that can be easily included as part of a larger sentence. The first word is lowercase and ending punctuation is omitted.
-
-        '
-      schema:
-        type: boolean
-    number:
-      name: number
-      in: path
-      required: true
-      description: 'An integer, the keyword `random`, a day of year in the form `month/day` (for date type), or a range like `1..10` or comma-separated values like `1,2,3` for batch requests.
-
-        '
-      schema:
-        type: string
-      example: '42'
-    json:
-      name: json
-      in: query
-      required: false
-      description: 'Return the fact and associated metadata as a JSON object instead of plain text. Can also be triggered by setting the Accept or Content-Type header to application/json.
-
-        '
-      schema:
-        type: boolean
     default:
       name: default
       in: query

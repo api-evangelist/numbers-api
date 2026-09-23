@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Numbers Date Random API
-  description: 'Free REST API providing interesting mathematical facts, trivia, dates, and year facts about numbers for educational and fun applications. Returns short, readable facts about any number or date across four categories: trivia, mathematical properties, notable years, and day-of-year historical events. No authentication or API key required.
-
-    '
+  title: Numbers Random API
+  description: 'Free REST API providing interesting mathematical facts, trivia, dates, and year facts about numbers for educational and fun applications. Returns short, readable facts about any number or date across four categories: trivia, mathematical properties, notable years, and day-of-year historical events. No authentication or API key required.'
   version: 1.0.0
   contact:
     url: http://numbersapi.com
@@ -114,76 +112,6 @@ paths:
       tags:
       - Random
 components:
-  parameters:
-    callback:
-      name: callback
-      in: query
-      required: false
-      description: '(Deprecated) JSONP callback function name. The response will be wrapped in a call to this function.
-
-        '
-      schema:
-        type: string
-      deprecated: true
-    min:
-      name: min
-      in: query
-      required: false
-      description: 'Minimum value for random number generation. Used with `random` number to constrain the range.
-
-        '
-      schema:
-        type: integer
-    max:
-      name: max
-      in: query
-      required: false
-      description: 'Maximum value for random number generation. Used with `random` number to constrain the range.
-
-        '
-      schema:
-        type: integer
-    fragment:
-      name: fragment
-      in: query
-      required: false
-      description: 'Return the fact as a sentence fragment that can be easily included as part of a larger sentence. The first word is lowercase and ending punctuation is omitted.
-
-        '
-      schema:
-        type: boolean
-    json:
-      name: json
-      in: query
-      required: false
-      description: 'Return the fact and associated metadata as a JSON object instead of plain text. Can also be triggered by setting the Accept or Content-Type header to application/json.
-
-        '
-      schema:
-        type: boolean
-    notfound:
-      name: notfound
-      in: query
-      required: false
-      description: 'What to do if the number is not found. Options: `default` (return a pre-written missing message), `floor` (round down to the largest number with a fact), `ceil` (round up to the smallest number with a fact).
-
-        '
-      schema:
-        type: string
-        enum:
-        - default
-        - floor
-        - ceil
-        default: default
-    default:
-      name: default
-      in: query
-      required: false
-      description: 'A custom message to return if no fact is found for the requested number. Used in conjunction with `notfound=default`.
-
-        '
-      schema:
-        type: string
   schemas:
     NumberFact:
       type: object
@@ -215,35 +143,6 @@ components:
           - year
           - date
           example: trivia
-    YearFact:
-      type: object
-      description: A fact about a year with associated metadata
-      required:
-      - text
-      - found
-      - number
-      - type
-      properties:
-        text:
-          type: string
-          description: The fact text itself
-          example: 2012 is the year that the century's second and last solar transit of Venus occurs on June 6.
-        found:
-          type: boolean
-          description: Whether a fact was found for the requested year
-          example: true
-        number:
-          type: number
-          description: The year that the fact pertains to
-          example: 2012
-        type:
-          type: string
-          description: The category of the returned fact
-          example: year
-        date:
-          type: string
-          description: A day of year associated with some year facts
-          example: June 6
     DateFact:
       type: object
       description: A fact about a calendar date with associated metadata
@@ -275,3 +174,102 @@ components:
           type: string
           description: A year associated with some date facts
           example: '1504'
+    YearFact:
+      type: object
+      description: A fact about a year with associated metadata
+      required:
+      - text
+      - found
+      - number
+      - type
+      properties:
+        text:
+          type: string
+          description: The fact text itself
+          example: 2012 is the year that the century's second and last solar transit of Venus occurs on June 6.
+        found:
+          type: boolean
+          description: Whether a fact was found for the requested year
+          example: true
+        number:
+          type: number
+          description: The year that the fact pertains to
+          example: 2012
+        type:
+          type: string
+          description: The category of the returned fact
+          example: year
+        date:
+          type: string
+          description: A day of year associated with some year facts
+          example: June 6
+  parameters:
+    notfound:
+      name: notfound
+      in: query
+      required: false
+      description: 'What to do if the number is not found. Options: `default` (return a pre-written missing message), `floor` (round down to the largest number with a fact), `ceil` (round up to the smallest number with a fact).
+
+        '
+      schema:
+        type: string
+        enum:
+        - default
+        - floor
+        - ceil
+        default: default
+    max:
+      name: max
+      in: query
+      required: false
+      description: 'Maximum value for random number generation. Used with `random` number to constrain the range.
+
+        '
+      schema:
+        type: integer
+    fragment:
+      name: fragment
+      in: query
+      required: false
+      description: 'Return the fact as a sentence fragment that can be easily included as part of a larger sentence. The first word is lowercase and ending punctuation is omitted.
+
+        '
+      schema:
+        type: boolean
+    json:
+      name: json
+      in: query
+      required: false
+      description: 'Return the fact and associated metadata as a JSON object instead of plain text. Can also be triggered by setting the Accept or Content-Type header to application/json.
+
+        '
+      schema:
+        type: boolean
+    callback:
+      name: callback
+      in: query
+      required: false
+      description: '(Deprecated) JSONP callback function name. The response will be wrapped in a call to this function.
+
+        '
+      schema:
+        type: string
+      deprecated: true
+    min:
+      name: min
+      in: query
+      required: false
+      description: 'Minimum value for random number generation. Used with `random` number to constrain the range.
+
+        '
+      schema:
+        type: integer
+    default:
+      name: default
+      in: query
+      required: false
+      description: 'A custom message to return if no fact is found for the requested number. Used in conjunction with `notfound=default`.
+
+        '
+      schema:
+        type: string

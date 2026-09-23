@@ -1,12 +1,8 @@
 {
   "provider": "numbers-api",
   "sources": [
-    "numbers-api-date-api-openapi.yml",
-    "numbers-api-math-api-openapi.yml",
-    "numbers-api-numbers-api-api-openapi.yml",
-    "numbers-api-random-api-openapi.yml",
-    "numbers-api-trivia-api-openapi.yml",
-    "numbers-api-year-api-openapi.yml"
+    "_original/numbers-api-openapi.yml",
+    "_original/numbers-batch-api-openapi.yml"
   ],
   "outputs": [
     "numbers-api-date-api-openapi.yml",
@@ -14,11 +10,39 @@
     "numbers-api-numbers-api-api-openapi.yml",
     "numbers-api-random-api-openapi.yml",
     "numbers-api-trivia-api-openapi.yml",
-    "numbers-api-year-api-openapi.yml"
+    "numbers-api-year-api-openapi.yml",
+    "numbers-api-batch-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "numbers-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "numbers-api-openapi.yml: tagged paths GET /{number} -> Numbers API",
+    "numbers-api-openapi.yml: tagged paths GET /{number}/trivia -> Trivia",
+    "numbers-api-openapi.yml: tagged paths GET /{number}/math -> Math",
+    "numbers-api-openapi.yml: tagged paths GET /{number}/year -> Year",
+    "numbers-api-openapi.yml: tagged paths GET /{month}/{day}/date -> Date",
+    "numbers-api-openapi.yml: tagged paths GET /random/trivia -> Random",
+    "numbers-api-openapi.yml: tagged paths GET /random/math -> Random",
+    "numbers-api-openapi.yml: tagged paths GET /random/year -> Random",
+    "numbers-api-openapi.yml: tagged paths GET /random/date -> Random",
+    "numbers-api-openapi.yml: declared missing tag: Date",
+    "numbers-api-openapi.yml: declared missing tag: Math",
+    "numbers-api-openapi.yml: declared missing tag: Numbers API",
+    "numbers-api-openapi.yml: declared missing tag: Random",
+    "numbers-api-openapi.yml: declared missing tag: Trivia",
+    "numbers-api-openapi.yml: declared missing tag: Year",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "numbers-api-batch-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "numbers-api-date-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "numbers-api-math-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "numbers-api-numbers-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "numbers-api-random-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "numbers-api-trivia-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "numbers-api-year-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
