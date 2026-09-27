@@ -42,16 +42,6 @@ paths:
       - Year
 components:
   parameters:
-    number:
-      name: number
-      in: path
-      required: true
-      description: 'An integer, the keyword `random`, a day of year in the form `month/day` (for date type), or a range like `1..10` or comma-separated values like `1,2,3` for batch requests.
-
-        '
-      schema:
-        type: string
-      example: '42'
     notfound:
       name: notfound
       in: query
@@ -66,33 +56,6 @@ components:
         - floor
         - ceil
         default: default
-    max:
-      name: max
-      in: query
-      required: false
-      description: 'Maximum value for random number generation. Used with `random` number to constrain the range.
-
-        '
-      schema:
-        type: integer
-    fragment:
-      name: fragment
-      in: query
-      required: false
-      description: 'Return the fact as a sentence fragment that can be easily included as part of a larger sentence. The first word is lowercase and ending punctuation is omitted.
-
-        '
-      schema:
-        type: boolean
-    json:
-      name: json
-      in: query
-      required: false
-      description: 'Return the fact and associated metadata as a JSON object instead of plain text. Can also be triggered by setting the Accept or Content-Type header to application/json.
-
-        '
-      schema:
-        type: boolean
     callback:
       name: callback
       in: query
@@ -103,15 +66,6 @@ components:
       schema:
         type: string
       deprecated: true
-    min:
-      name: min
-      in: query
-      required: false
-      description: 'Minimum value for random number generation. Used with `random` number to constrain the range.
-
-        '
-      schema:
-        type: integer
     default:
       name: default
       in: query
@@ -121,6 +75,52 @@ components:
         '
       schema:
         type: string
+    number:
+      name: number
+      in: path
+      required: true
+      description: 'An integer, the keyword `random`, a day of year in the form `month/day` (for date type), or a range like `1..10` or comma-separated values like `1,2,3` for batch requests.
+
+        '
+      schema:
+        type: string
+      example: '42'
+    json:
+      name: json
+      in: query
+      required: false
+      description: 'Return the fact and associated metadata as a JSON object instead of plain text. Can also be triggered by setting the Accept or Content-Type header to application/json.
+
+        '
+      schema:
+        type: boolean
+    fragment:
+      name: fragment
+      in: query
+      required: false
+      description: 'Return the fact as a sentence fragment that can be easily included as part of a larger sentence. The first word is lowercase and ending punctuation is omitted.
+
+        '
+      schema:
+        type: boolean
+    min:
+      name: min
+      in: query
+      required: false
+      description: 'Minimum value for random number generation. Used with `random` number to constrain the range.
+
+        '
+      schema:
+        type: integer
+    max:
+      name: max
+      in: query
+      required: false
+      description: 'Maximum value for random number generation. Used with `random` number to constrain the range.
+
+        '
+      schema:
+        type: integer
   schemas:
     YearFact:
       type: object
