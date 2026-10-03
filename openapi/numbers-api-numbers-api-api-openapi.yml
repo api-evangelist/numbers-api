@@ -42,6 +42,26 @@ paths:
       - Numbers API
 components:
   parameters:
+    callback:
+      name: callback
+      in: query
+      required: false
+      description: '(Deprecated) JSONP callback function name. The response will be wrapped in a call to this function.
+
+        '
+      schema:
+        type: string
+      deprecated: true
+    number:
+      name: number
+      in: path
+      required: true
+      description: 'An integer, the keyword `random`, a day of year in the form `month/day` (for date type), or a range like `1..10` or comma-separated values like `1,2,3` for batch requests.
+
+        '
+      schema:
+        type: string
+      example: '42'
     notfound:
       name: notfound
       in: query
@@ -56,16 +76,6 @@ components:
         - floor
         - ceil
         default: default
-    callback:
-      name: callback
-      in: query
-      required: false
-      description: '(Deprecated) JSONP callback function name. The response will be wrapped in a call to this function.
-
-        '
-      schema:
-        type: string
-      deprecated: true
     default:
       name: default
       in: query
@@ -75,25 +85,6 @@ components:
         '
       schema:
         type: string
-    number:
-      name: number
-      in: path
-      required: true
-      description: 'An integer, the keyword `random`, a day of year in the form `month/day` (for date type), or a range like `1..10` or comma-separated values like `1,2,3` for batch requests.
-
-        '
-      schema:
-        type: string
-      example: '42'
-    json:
-      name: json
-      in: query
-      required: false
-      description: 'Return the fact and associated metadata as a JSON object instead of plain text. Can also be triggered by setting the Accept or Content-Type header to application/json.
-
-        '
-      schema:
-        type: boolean
     fragment:
       name: fragment
       in: query
@@ -103,15 +94,6 @@ components:
         '
       schema:
         type: boolean
-    min:
-      name: min
-      in: query
-      required: false
-      description: 'Minimum value for random number generation. Used with `random` number to constrain the range.
-
-        '
-      schema:
-        type: integer
     max:
       name: max
       in: query
@@ -121,6 +103,24 @@ components:
         '
       schema:
         type: integer
+    min:
+      name: min
+      in: query
+      required: false
+      description: 'Minimum value for random number generation. Used with `random` number to constrain the range.
+
+        '
+      schema:
+        type: integer
+    json:
+      name: json
+      in: query
+      required: false
+      description: 'Return the fact and associated metadata as a JSON object instead of plain text. Can also be triggered by setting the Accept or Content-Type header to application/json.
+
+        '
+      schema:
+        type: boolean
   schemas:
     NumberFact:
       type: object
